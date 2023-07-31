@@ -67,8 +67,8 @@ BuildLinuxArm() {
   CGO_ARGS=(arm-linux-musleabi-gcc arm-linux-musleabihf-gcc armeb-linux-musleabi-gcc armeb-linux-musleabihf-gcc armel-linux-musleabi-gcc armel-linux-musleabihf-gcc armv5l-linux-musleabi-gcc armv5l-linux-musleabihf-gcc armv6-linux-musleabi-gcc armv6-linux-musleabihf-gcc armv7l-linux-musleabihf-gcc armv7m-linux-musleabi-gcc armv7r-linux-musleabihf-gcc)
   GOARMS=('' '' '' '' '' '' '5' '5' '6' '6' '7' '7' '7')
   for i in "${!OS_ARCHES[@]}"; do
-    # os_arch=${OS_ARCHES[$i]}
-    # cgo_cc=${CGO_ARGS[$i]}
+    os_arch=${OS_ARCHES[$i]}
+    cgo_cc=${CGO_ARGS[$i]}
     arm=${GOARMS[$i]}
     echo building for ${os_arch}
     echo arm=${arm}
