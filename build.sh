@@ -108,7 +108,7 @@ BuildDev() {
   #   go build -o ./dist/$appName-$os_arch -ldflags="$muslflags" -tags=jsoniter .
   # done
   # xgo -targets=windows/amd64,darwin/amd64 -out "$appName" -ldflags="$ldflags" -tags=jsoniter .
-  xgo -targets=darwin/arm64 -out "$appName" -ldflags="$ldflags" -tags=jsoniter .
+  xgo -targets=darwin/arm64,windows/amd64,linux/amd64,darwin/amd64 -out "$appName" -ldflags="$ldflags" -tags=jsoniter .
   mv alist-* dist
   cd dist
   # cp ./alist-windows-amd64.exe ./alist-windows-amd64-upx.exe
@@ -216,7 +216,7 @@ if [ "$1" = "dev" ]; then
   if [ "$2" = "docker" ]; then
     BuildDocker
   else
-    BuildLinuxArm
+    BuildDev
   fi
 elif [ "$1" = "release" ]; then
   FetchWebRelease
